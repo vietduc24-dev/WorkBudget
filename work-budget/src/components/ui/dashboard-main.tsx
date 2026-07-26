@@ -4,23 +4,23 @@ import { TaskCard } from "./task-card";
 
 const metrics: MetricCardProps[] = [
   {
-    accent: "bg-[#4f8cff]",
+    color: "#514cff",
     label: "Task Completed",
-    points: "0,40 28,24 56,31 86,8 115,19",
+    path: "M0 42 C28 8 38 80 66 28 C88 -12 98 58 126 8 C146 -24 158 6 174 18",
     trend: "10+ more from last week",
     value: "08",
   },
   {
-    accent: "bg-[#ffb43f]",
+    color: "#19a2ff",
     label: "New Task",
-    points: "0,36 28,13 58,20 86,30 115,10",
+    path: "M0 42 C26 10 40 74 66 26 C88 -11 100 54 126 8 C146 -20 158 8 174 20",
     trend: "10+ more from last week",
     value: "10",
   },
   {
-    accent: "bg-[#41c7a4]",
+    color: "#ff5147",
     label: "Project Done",
-    points: "0,28 25,36 58,14 86,25 115,6",
+    path: "M0 42 C30 10 42 74 68 26 C90 -12 104 56 128 8 C148 -18 160 8 174 18",
     trend: "08+ more from last week",
     value: "10",
   },
@@ -34,13 +34,15 @@ export function DashboardMain() {
           <MetricCard key={metric.label} metric={metric} />
         ))}
       </section>
-      <section className="mt-7 grid gap-7 2xl:grid-cols-[minmax(0,1fr)_324px]">
+      <section className="mt-[30px]">
         <ChartCard />
-        <aside className="grid gap-5">
-          <TaskCard progress="72%" title="Create mobile screens" tone="bg-[#4f8cff]" />
-          <TaskCard progress="45%" title="Wireframe review" tone="bg-[#ffb43f]" />
-          <TaskCard progress="88%" title="Dashboard polish" tone="bg-[#41c7a4]" />
-        </aside>
+      </section>
+      <section className="mt-[25px]">
+        <h2 className="mb-5 text-[26px] font-bold text-[var(--ink)]">Task</h2>
+        <div className="grid gap-5">
+          <TaskCard comments="8 comments" progress="24%" time="9.00 am" title="Search Inspiration for project" url="www.uistore.com" />
+          <TaskCard comments="5 comments" progress="60%" time="3.00 am" title="Search Inspiration for project" url="www.uistore.org" />
+        </div>
       </section>
     </div>
   );

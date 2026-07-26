@@ -1,44 +1,65 @@
-const labels = ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"];
+const labels = ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr"];
 
 export function ChartCard() {
+  const gridRows = ["400", "300", "200", "100", "0"];
+
   return (
     <article className="ui-card p-6">
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h2 className="text-xl font-semibold">Project Analytics</h2>
-          <p className="mt-1 text-sm text-[var(--muted)]">Completed and active task movement</p>
-        </div>
-        <div className="flex items-center gap-5 text-xs font-medium text-[var(--muted)]">
-          <span className="flex items-center gap-2">
-            <i className="h-2.5 w-2.5 rounded-full bg-[#4f8cff]" />
-            Completed
-          </span>
-          <span className="flex items-center gap-2">
-            <i className="h-2.5 w-2.5 rounded-full bg-[#41c7a4]" />
-            Active
-          </span>
+        <h2 className="text-[26px] font-bold text-[var(--ink)]">Task Done</h2>
+        <div className="flex items-center gap-10 text-[18px] font-semibold text-[var(--ink)]">
+          <button type="button">Daily</button>
+          <button type="button">Weekly</button>
+          <button className="border-b-2 border-[var(--blue)] pb-3 text-[var(--blue)]" type="button">
+            Monthly
+          </button>
         </div>
       </div>
-      <div className="mt-8 overflow-hidden">
-        <svg aria-hidden="true" className="h-[250px] w-full min-w-[680px]" viewBox="0 0 820 250">
-          {[25, 75, 125, 175, 225].map((y) => (
-            <line key={y} stroke="#edf0f4" strokeWidth="1" x1="48" x2="808" y1={y} y2={y} />
+      <div className="mt-7 grid grid-cols-[45px_1fr]">
+        <div className="flex h-[230px] flex-col justify-between text-[14px] text-[var(--muted)]">
+          {gridRows.map((row) => (
+            <span key={row}>{row}</span>
           ))}
-          <path
-            d="M48 196 C128 118, 170 206, 240 105 S370 56, 420 122 S520 212, 592 154 S710 36, 808 142"
-            fill="none"
-            stroke="#4f8cff"
-            strokeWidth="4"
-          />
-          <path
-            d="M48 172 C122 160, 160 120, 234 154 S360 42, 428 78 S520 94, 590 126 S708 112, 808 178"
-            fill="none"
-            stroke="#41c7a4"
-            strokeWidth="4"
-          />
-        </svg>
+        </div>
+        <div className="relative h-[252px] overflow-hidden">
+          {[0, 55, 110, 165, 220].map((top) => (
+            <div className="absolute inset-x-0 h-px bg-[#e8ecf3]" key={top} style={{ top }} />
+          ))}
+          <svg aria-hidden="true" className="absolute inset-x-0 top-2 h-[240px] w-full" viewBox="0 0 774 240">
+            <defs>
+              <linearGradient id="purpleFill" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stopColor="#514cff" stopOpacity=".22" />
+                <stop offset="100%" stopColor="#514cff" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient id="blueFill" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stopColor="#19a2ff" stopOpacity=".24" />
+                <stop offset="100%" stopColor="#19a2ff" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M0 190 C40 185 55 130 88 150 C130 175 150 210 172 142 C195 72 213 6 255 14 C293 21 296 76 334 82 C374 90 376 138 424 122 C460 109 482 93 520 124 C560 157 588 185 626 120 C662 58 680 28 725 35 C760 40 745 146 774 190 L774 240 L0 240 Z"
+              fill="url(#purpleFill)"
+            />
+            <path
+              d="M0 190 C40 185 55 130 88 150 C130 175 150 210 172 142 C195 72 213 6 255 14 C293 21 296 76 334 82 C374 90 376 138 424 122 C460 109 482 93 520 124 C560 157 588 185 626 120 C662 58 680 28 725 35 C760 40 745 146 774 190"
+              fill="none"
+              stroke="#514cff"
+              strokeWidth="3"
+            />
+            <path
+              d="M0 210 C42 210 38 170 80 163 C126 156 125 78 164 93 C200 106 210 88 242 66 C278 40 304 45 328 90 C356 142 382 110 420 98 C464 84 470 220 512 208 C558 198 570 185 615 200 C666 218 683 160 732 150 C756 146 753 175 774 178 L774 240 L0 240 Z"
+              fill="url(#blueFill)"
+            />
+            <path
+              d="M0 210 C42 210 38 170 80 163 C126 156 125 78 164 93 C200 106 210 88 242 66 C278 40 304 45 328 90 C356 142 382 110 420 98 C464 84 470 220 512 208 C558 198 570 185 615 200 C666 218 683 160 732 150 C756 146 753 175 774 178"
+              fill="none"
+              stroke="#19a2ff"
+              strokeWidth="3"
+            />
+          </svg>
+        </div>
       </div>
-      <div className="mt-4 grid grid-cols-5 gap-3 text-xs text-[var(--muted)] sm:grid-cols-10">
+      <div className="ml-[45px] mt-1 grid grid-cols-6 gap-2 text-[12px] text-[var(--muted)] md:grid-cols-12">
         {labels.map((label) => (
           <span key={label}>{label}</span>
         ))}

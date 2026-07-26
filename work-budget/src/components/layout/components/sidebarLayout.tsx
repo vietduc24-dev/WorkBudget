@@ -17,12 +17,12 @@ const navItems: NavItem[] = [
 
 export function Sidebar() {
   return (
-    <aside className="hidden w-[94px] shrink-0 flex-col items-center border-r border-[var(--line)] bg-white py-5 md:flex">
+    <aside className="hidden w-[94px] shrink-0 flex-col items-center bg-white py-5 md:flex">
       <div className="mb-32 flex flex-col items-center">
-        <div className="grid h-9 w-9 place-items-center rounded-md bg-[var(--ink)] text-xs font-black text-white">
-          O
+        <div className="grid h-9 w-9 place-items-center rounded-[10px] bg-[var(--primary)] text-xs font-black text-white">
+          S
         </div>
-        <span className="mt-1 text-[10px] font-bold tracking-[0.08em]">OCTOM.</span>
+        <span className="mt-1 text-[16px] font-bold">OCTOM.</span>
       </div>
       <nav className="flex flex-1 flex-col items-center gap-5">
         {navItems.map((item) => (
@@ -30,7 +30,7 @@ export function Sidebar() {
             className={[
               "grid h-11 w-11 place-items-center rounded-md transition",
               item.active
-                ? "bg-[var(--ink)] text-white shadow-[0_12px_24px_rgba(20,27,52,0.18)]"
+                ? "bg-[var(--primary)] text-white shadow-[0_12px_24px_rgb(81_76_255_/_26%)]"
                 : "text-[var(--muted)] hover:bg-[var(--soft)] hover:text-[var(--ink)]",
             ].join(" ")}
             key={item.label}
