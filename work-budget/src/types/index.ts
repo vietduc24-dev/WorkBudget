@@ -3,6 +3,8 @@ export type {
   AuthTokens,
   ForgotPasswordPayload,
   LoginPayload,
+  MeResponse,
+  MeUser,
   RegisterResponse,
   RegisterPayload,
   VerifyRegistrationPayload,

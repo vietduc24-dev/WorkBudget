@@ -32,6 +32,25 @@ export type AuthResponse = {
   data?: AuthTokens;
 };
 
+export type MeUser = {
+  id?: string | number;
+  name?: string;
+  first_name?: string;
+  last_name?: string;
+  email?: string;
+  role?: string | { name?: string };
+  job_title?: string;
+  avatar_url?: string;
+  cover_url?: string;
+};
+
+export type MeResponse = {
+  success?: boolean;
+  message?: string;
+  data?: MeUser;
+  user?: MeUser;
+};
+
 export type RegisterResponse = {
   success?: boolean;
   message?: string;

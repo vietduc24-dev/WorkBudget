@@ -3,6 +3,7 @@ import type {
   AuthResponse,
   ForgotPasswordPayload,
   LoginPayload,
+  MeResponse,
   RegisterPayload,
   RegisterResponse,
   VerifyRegistrationPayload,
@@ -23,5 +24,9 @@ export const authApi = {
 
   forgotPassword(payload: ForgotPasswordPayload) {
     return http.post<AuthResponse>("/auth/forgot-password/", payload);
+  },
+
+  me() {
+    return http.get<MeResponse>("/auth/me");
   },
 };
